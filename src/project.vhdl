@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity tt_um_example is
+entity tt_um_RK444_Simple_Start is
     port (
         ui_in : in std_logic_vector(7 downto 0);
         uo_out : out std_logic_vector(7 downto 0);
@@ -15,7 +15,7 @@ entity tt_um_example is
     );
 end entity;
 
-architecture behavioral of tt_um_example is
+architecture behavioral of tt_um_RK444_Simple_Start is
 
 begin
 
