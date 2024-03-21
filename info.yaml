@@ -18,8 +18,7 @@ project:
   top_module:  "tt_um_RK444_Simple_Start" #TODO: change name
   
   # List your project's source files here. Source files must be in ./src and you must list each source file separately, one per line:
-  source_files:        
-    - "project.v"
+  source_files:
     - "project.vhdl"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
