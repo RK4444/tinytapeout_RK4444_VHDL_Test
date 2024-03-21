@@ -19,7 +19,8 @@ project:
   
   # List your project's source files here. Source files must be in ./src and you must list each source file separately, one per line:
   source_files:        
-    - "project.v" #leave this as it is to keep tinytapeout happy
+    - "project.v"
+    - "project.vhdl"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 pinout:
