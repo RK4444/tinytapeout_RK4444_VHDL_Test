@@ -7,6 +7,10 @@ project:
   language:     "VHDL" # other examples include SystemVerilog, Amaranth, VHDL, etc
   clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
 
+  how_it_works: |
+    This should basically do the same as the verilog sample atleast for the beginning.
+    I try to get some experience so i can maybe one day make my own chips.
+
   # How many tiles your design occupies? A single tile is about 167x108 uM.
   tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
 
