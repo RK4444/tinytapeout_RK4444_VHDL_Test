@@ -28,7 +28,7 @@ jobs:
         run: |
           cd src
           ghdl -a project.vhdl
-          ghdl synth --out=verilog project > project.v
+          ghdl --synth --out=verilog project > project.v
           cd ../test
           make clean
           make
