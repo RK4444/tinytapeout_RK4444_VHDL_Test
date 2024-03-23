@@ -9,7 +9,7 @@ jobs:
 
       - name: Install iverilog
         shell: bash
-        run: sudo apt-get update && sudo apt-get install -y iverilog ghdl
+        run: sudo apt-get update && sudo apt-get install -y iverilog git make gnat zlib1g-dev && git clone https://github.com/ghdl/ghdl && cd ghdl && ./configure --prefix=/usr/local && make && sudo make install
 
       # Set Python up and install cocotb
       - name: Setup python
