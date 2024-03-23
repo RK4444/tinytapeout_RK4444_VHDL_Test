@@ -27,7 +27,7 @@ jobs:
       - name: Run tests
         run: |
           cd src
-          ghdl -a -fsynopsis project.vhdl
+          ghdl -a -fsynopsys project.vhdl
           ghdl --synth -fsynopsys --out=verilog project > project.v
           cd ../test
           make clean
