@@ -9,7 +9,7 @@ jobs:
 
       - name: Install iverilog
         shell: bash
-        run: sudo apt-get update && sudo apt-get install -y iverilog ghdl yosys yosys-plugin-ghdl
+        run: sudo apt-get update && sudo apt-get install -y iverilog ghdl
 
       # Set Python up and install cocotb
       - name: Setup python
@@ -27,7 +27,9 @@ jobs:
       - name: Run tests
         run: |
           cd src
-          yosys -m ghdl -p "ghdl -fsynopsys project.vhdl -e project; write_verilog project.v"
+          ghdl --help
+          ghdl -a -fsynopsys project.vhdl
+          ghdl --synth -fsynopsys --out=verilog project > project.v
           cd ../test
           make clean
           make
