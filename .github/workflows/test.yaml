@@ -29,7 +29,7 @@ jobs:
           cd src
           ghdl --help
           ghdl -a -fsynopsys project.vhdl
-          ghdl --synth -fsynopsys --out=verilog project > project.v
+          ghdl --synth -fsynopsys --out=verilog tt_um_RK444_Simple_Start > project.v
           cd ../test
           make clean
           make
