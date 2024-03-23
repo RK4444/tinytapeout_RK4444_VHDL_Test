@@ -8,10 +8,21 @@ jobs:
   gds:
     runs-on: ubuntu-latest
     steps:
+      - name: Install ghdl
+        shell: bash
+        run: sudo apt-get update && sudo apt-get install -y git make gnat zlib1g-dev && git clone https://github.com/ghdl/ghdl && cd ghdl && ./configure --prefix=/usr/local && make && sudo make install
+
       - name: checkout repo
         uses: actions/checkout@v4
         with:
           submodules: recursive
+
+      - name: transpile vhdl files
+      - run: |
+          cd src
+          ghdl -a -fsynopsys project.vhdl
+          ghdl --synth -fsynopsys --out=verilog tt_um_RK444_Simple_Start > project.v
+          cd ..
 
       - name: Build GDS
         uses: TinyTapeout/tt-gds-action@tt06
