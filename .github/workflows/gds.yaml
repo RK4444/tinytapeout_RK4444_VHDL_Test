@@ -17,6 +17,12 @@ jobs:
         with:
           submodules: recursive
 
+      - name: transpile vhdl files
+        run: |
+          cd src
+          ghdl -a -fsynopsys project.vhdl
+          ghdl --synth -fsynopsys --out=verilog tt_um_RK444_Simple_Start > project.v
+          cd ..
 
       - name: Build GDS
         uses: TinyTapeout/tt-gds-action@tt06
