@@ -11,7 +11,7 @@ entity tt_um_RK444_Simple_Start is
         uio_oe : out std_logic_vector(7 downto 0);
         ena : in std_logic;
         clk   : in std_logic;
-        rst_n : in std_logic;
+        rst_n : in std_logic
     );
 end entity;
 
