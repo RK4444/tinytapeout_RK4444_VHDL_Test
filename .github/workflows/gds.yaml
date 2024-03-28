@@ -20,8 +20,8 @@ jobs:
       - name: transpile vhdl files
         run: |
           cd src
-          ghdl -a -fsynopsys project.vhdl
-          ghdl --synth -fsynopsys --out=verilog tt_um_RK444_Simple_Start > project.v
+          ghdl -a --std=08 --ieee=standard *.vhdl
+          ghdl --synth --std=08 --ieee=standard --out=verilog tt_um_RK444_Simple_Start > project.v
           cd ..
 
       - name: Build GDS

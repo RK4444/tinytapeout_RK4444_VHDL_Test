@@ -3,13 +3,11 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity tb is
-    port (
-        
-    );
+    
 end entity;
 
 architecture rtl of tb is
-    signal clk : std_logic;
+    signal clk : std_logic := '0';
     signal rst_n : std_logic;
     signal ena : std_logic;
     signal ui_in : std_logic_vector(7 downto 0);
@@ -20,7 +18,7 @@ architecture rtl of tb is
     
 begin
 
-    myModule : entity tt_um_RK444_Simple_Start(behavioral)
+    myModule : entity work.tt_um_RK444_Simple_Start(behavioral)
     port map(
         ui_in => ui_in,
         uo_out => uo_out,
@@ -32,4 +30,14 @@ begin
         ena => ena
     );
 
+    ui_in <= "00010000";
+    uio_in <= "00010000";
+
+    clk <= not clk after 10 ns;
+
+    process
+    begin
+        wait for 100 ns;
+        assert false severity failure;
+    end process;
 end architecture;
