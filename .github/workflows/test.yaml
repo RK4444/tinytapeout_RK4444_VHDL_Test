@@ -26,10 +26,11 @@ jobs:
 
       - name: Run tests
         run: |
+          awk '/top_module:/ { print $2 }' info.yaml >> "name.txt"
+          cat name.txt
           cd src
-          awk '/top_module:/ { print $2 }' ../info.yaml
           ghdl -a --std=08 --ieee=standard *.vhdl
-          ghdl --synth --std=08 --ieee=standard --out=verilog "$(awk '/top_module:/ { print $2 }' ../info.yaml)" > project.v
+          ghdl --synth --std=08 --ieee=standard --out=verilog "$(cat name.txt)" > project.v
           cd ../test
           make clean
           make
