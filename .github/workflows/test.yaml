@@ -28,7 +28,7 @@ jobs:
         env:
           toplevelmodule: tt_um_RK444_Simple_Start
         run: |
-          $toplevelmodule = awk '/top_module:/ { print $2 }' info.yaml
+          awk '/top_module:/ { print $2 }' info.yaml >> $toplevelmodule
           echo $toplevelmodule
           cd src
           ghdl -a --std=08 --ieee=standard *.vhdl
