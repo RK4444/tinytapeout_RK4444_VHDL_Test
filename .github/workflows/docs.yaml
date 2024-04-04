@@ -13,5 +13,16 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Install ghdl
+        shell: bash
+        run: sudo apt-get update && sudo apt-get install -y git make gnat zlib1g-dev && git clone https://github.com/ghdl/ghdl && cd ghdl && ./configure --prefix=/usr/local && make && sudo make install
+
+      - name: Run conversion
+        run: |
+          cd src
+          ghdl -a --std=08 --ieee=standard *.vhdl
+          ghdl --synth --std=08 --ieee=standard --out=verilog "$(awk '/top_module:/ { print $2 }' ../info.yaml | tr -d '"')" > project.v
+          
+
       - name: Build docs
         uses: TinyTapeout/tt-gds-action/docs@tt06
