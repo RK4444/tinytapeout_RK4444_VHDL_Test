@@ -25,8 +25,10 @@ jobs:
           cocotb-config --python-bin
 
       - name: Run tests
+        env:
+          toplevelmodule: tt_um_RK444_Simple_Start
         run: |
-          awk '/top_module:/ { print $2 }' info.yaml > $toplevelmodule
+          $toplevelmodule = awk '/top_module:/ { print $2 }' info.yaml
           echo $toplevelmodule
           cd src
           ghdl -a --std=08 --ieee=standard *.vhdl
