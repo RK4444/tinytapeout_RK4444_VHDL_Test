@@ -27,6 +27,7 @@ jobs:
       - name: Run tests
         run: |
           cd src
+          awk '/top_module:/ { print $2 }' ../info.yaml
           ghdl -a --std=08 --ieee=standard *.vhdl
           ghdl --synth --std=08 --ieee=standard --out=verilog "$(awk '/top_module:/ { print $2 }' ../info.yaml)" > project.v
           cd ../test
