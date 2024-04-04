@@ -26,7 +26,7 @@ jobs:
 
       - name: Run tests
         run: |
-          toplevelmodule = awk '/top_module:/ { print $2 }' info.yaml
+          export toplevelmodule = awk '/top_module:/ { print $2 }' info.yaml
           echo $toplevelmodule
           cd src
           ghdl -a --std=08 --ieee=standard *.vhdl
