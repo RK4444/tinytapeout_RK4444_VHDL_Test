@@ -26,6 +26,8 @@ jobs:
 
       - name: Run tests
         run: |
+          toplevelmodule = awk '/top_module:/ { print $2 }' info.yaml
+          echo $toplevelmodule
           cd src
           ghdl -a --std=08 --ieee=standard *.vhdl
           ghdl --synth --std=08 --ieee=standard --out=verilog tt_um_RK444_Simple_Start > project.v
